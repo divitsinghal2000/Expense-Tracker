@@ -12,11 +12,20 @@ const Expenses = (props) => {
   const filteredExpenses = props.expenses.filter((expense) => {
     return expense.date.getFullYear().toString() === filterYear;
   });
-  filteredExpenses.sort((expense1,expense2)=>{
-    if(expense1.date.getMonth().toString() != expense2.date.getMonth().toString()){
-      return expense1.date.getMonth().toString() - expense2.date.getMonth().toString();
+  filteredExpenses.sort((expense1, expense2) => {
+    if (
+      expense1.date.getMonth().toString() !==
+      expense2.date.getMonth().toString()
+    ) {
+      return (
+        expense1.date.getMonth().toString() -
+        expense2.date.getMonth().toString()
+      );
     }
-    return expense1.date.toLocaleString("en-US", { day: "2-digit" }) - expense2.date.toLocaleString("en-US", { day: "2-digit" });
+    return (
+      expense1.date.toLocaleString("en-US", { day: "2-digit" }) -
+      expense2.date.toLocaleString("en-US", { day: "2-digit" })
+    );
   });
 
   return (
